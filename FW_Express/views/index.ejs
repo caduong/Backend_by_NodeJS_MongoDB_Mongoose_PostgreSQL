@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <% var i = 20; %>
+    <h2> value i = <%= i%> </h2>
+
+    <!-- <%      
+      for (var number = 0; number < 20; number++) {
+        %>
+        <h2> value number = <%= number%> </h2>
+        <%
+      };
+    %> -->
+    
+    <!-- <%
+    var array_value = ["ONE", "TWO","THREE"]; 
+      array_value.forEach((x) =>{
+        %>
+        <li>
+          <%= x %>
+        </li>
+        <%
+      })
+      %> -->
+
+<!-- <% var y = "<h2 style = 'color:red'> Hello world </h2>" %>
+<%- y%> -->
+    
+
+  </body>
+</html>
