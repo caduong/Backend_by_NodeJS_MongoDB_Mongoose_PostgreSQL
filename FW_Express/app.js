@@ -24,9 +24,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/index.html', indexRouter);
+app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+app.use('/index.html', indexRouter);
 app.use('/about.html', aboutRouter);
 app.use('/post.html', postRouter);
 app.use('/contact.html', contactRouter);
