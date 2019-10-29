@@ -1,5 +1,10 @@
-{
-    "name" : "Serven",
-    "nati" : "VN",
-    "card" : "123456789"
-}
+# data
+{"name" : "Serven","nati" : "VN","card" : "123456789"}
+
+{"name" : "AnhDuong","nati" : "VN","card" : "2060087"}
+
+{"name" : "Jony","nati" : "USA","card" : "45698"}
+
+# Communication mongoDB and NodeJS
+
+    req.body  --> get all info form controller "POST"

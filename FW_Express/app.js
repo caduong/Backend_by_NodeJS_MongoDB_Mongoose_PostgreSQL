@@ -11,7 +11,7 @@ var aboutRouter = require('./routes/about');
 var postRouter = require('./routes/post');
 var contactRouter = require('./routes/contact');
 
-var session = require('express-session')
+var session = require('express-session');
 
 
 var app = express();
