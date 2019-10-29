@@ -21,6 +21,8 @@ router.post('/', function(req, res, next) {
   //req.session.dataName = data;
   //res.send("Data: " + JSON.stringify(data));
   
+  
+  /* Add data and define function 'insertDocuments'*/
   const insertDocuments = function(db, callback) {
     // Get the documents collection
     const collection = db.collection('listUser');
@@ -36,16 +38,13 @@ router.post('/', function(req, res, next) {
   MongoClient.connect(url, function(err, client) {
     assert.equal(null, err);
     console.log("Connected correctly to server");
-
     const db = client.db(dbName);
-
     insertDocuments(db, function() {
-      
-        client.close();
-      
+    client.close();  
     });
   });
   res.redirect('/');
+  
 });
 
 module.exports = router;
