@@ -4,17 +4,20 @@ var router = express.Router();
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
+// Create path to Database
 const url = 'mongodb://localhost:27017';
 
-const dbName = 'cad';
+// Set name of Database
+const dbName = 'contact';
 
+// Connect with Database
 MongoClient.connect(url, function(err,client){
   assert.equal(null, err);
-  console.log("Connect complete!");
-
+  console.log("Database connect complete!!!");
   const db = client.db(dbName);
+
   client.close();
-});
+}); 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
