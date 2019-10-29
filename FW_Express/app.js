@@ -11,6 +11,8 @@ var aboutRouter = require('./routes/about');
 var postRouter = require('./routes/post');
 var contactRouter = require('./routes/contact');
 
+var session = require('express-session')
+
 
 var app = express();
 
@@ -22,6 +24,14 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  //cookie: { secure: true }
+}));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
@@ -47,5 +57,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+console.log("Server running with port 3000!!!")
 
 module.exports = app;
