@@ -12,7 +12,7 @@ const url = 'mongodb://localhost:27017';
 const dbName = 'contact';
 
 // Connect with Database
-MongoClient.connect(url, function(err,client){
+MongoClient.connect(url, function(err,client){  
   assert.equal(null, err);
   console.log("Database connect complete!!!");
   const db = client.db(dbName);
@@ -23,8 +23,8 @@ MongoClient.connect(url, function(err,client){
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', function (req, res, next) {
+	res.render('index', { title: 'Express' });
 });
 
 module.exports = router;
