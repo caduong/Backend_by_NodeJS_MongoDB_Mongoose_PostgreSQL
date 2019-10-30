@@ -8,3 +8,70 @@
 # Communication mongoDB and NodeJS
 
     req.body  --> get all info form controller "POST"
+
+    req.params:"name"  --> get data from router
+
+# 1. Add lib and setup. 
+
+    const MongoClient = require('mongodb').MongoClient;
+    const assert = require('assert');
+
+    const url = 'mongodb://localhost:27017';
+
+    const dbName = 'contact';
+
+# 2. Connect with mongoDB
+    MongoClient.connect(url, function(err, client) {
+        assert.equal(null, err);
+        console.log("Connected correctly to server");
+        const db = client.db(dbName);
+        insertDocuments(db, function() {
+        client.close();  
+        });
+    });
+
+# 3. Insert data into collection.
+    const insertDocuments = function(db, callback) {
+        const collection = db.collection('listUser');
+        collection.insert(data, function(err, result) {
+            assert.equal(err, null);
+            console.log("Add data done!");  
+            callback(result);
+        });
+    }
+
+# 4. FInd data in collection with query filter.
+    const findDocuments = function (db, callback) {
+      const collection = db.collection('listUser');
+      collection.find({"name":"Jony"}).toArray(function (err, docs) {
+         assert.equal(err, null);
+         console.log("Found the following records");
+         res.send(JSON.stringify(docs));
+         callback(docs);
+      });
+   }
+
+# 5. Remove
+    const removeDocument = function (db, callback) {
+      const collection = db.collection(collectionName);
+      collection.deleteOne({ _id: objectid }, function (err, result) {
+         assert.equal(err, null);
+         assert.equal(1, result.result.n);
+         console.log("Removed complete!!!");
+         callback(result);
+      });
+   }
+
+# 6. Update
+    const updateDocument = function (db, callback) {
+      // Get the documents collection
+      const collection = db.collection(collectionName);
+      // Update document where a is 2, set b equal to 1
+      collection.updateOne({ _id: objectid }
+         , { $set: data }, function (err, result) {
+            assert.equal(err, null);
+            assert.equal(1, result.result.n);
+            console.log("Updated the document with the field a equal to 2");
+            callback(result);
+         });
+   }
