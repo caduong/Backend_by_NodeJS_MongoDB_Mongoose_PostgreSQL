@@ -30,30 +30,13 @@ router.post('/:ID', function (req, res, next) {
 	});
 });
 
+
 /* Add a users . */
 router.post('/', function (req, res, next) {
-	contactModel.insertMany(req.body,function (err, data) {
-		console.log("add a users: "+ data);
-		res.status(200).redirect('/users');
-	});
-	// contactModel = json(req.body);
-	
-	// contactModel.save();
+	var newUser = new contactModel(req.body);
+	newUser.save()
+	res.redirect('/users');
 });
 
 
-
 module.exports = router;
-
-// app.delete("/notesapi/:tabID", (request, response) => {
-//    NotesModel.findByIdAndRemove(request.params.tabID, (error, data) => {
-//       if (error) {
-//          console.log("error in deleting yo!");
-//          throw error;
-//       } else {
-//          console.log("data all gone and deleted yo");
-//          response.status(204);
-
-//       }
-//    });
-// });
