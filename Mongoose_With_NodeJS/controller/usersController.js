@@ -18,19 +18,22 @@ module.exports = {
 
 	/* GET a users with ID . */
 	getUser: async (req, res, next) => {
-		const user = await contactModel.findById(req.params.ID);
+		const { userId } = req.params;
+		const user = await contactModel.findById(userId);
 		res.status(200).json(user);
 	},
 
 	// /* Remove a users . */
 	removeUser: async (req, res, next) =>  {
-		await contactModel.findByIdAndRemove(req.params.ID);
+		const { userId } = req.params;
+		await contactModel.findByIdAndRemove(userId);
 		res.status(200).send('Removed');
 	},
 
 	/* Update a users . */
 	updateUser: async (req, res, next) => {
-		const userUpdate = await contactModel.findByIdAndUpdate(req.params.ID, req.body);
+		const { userId } = req.params;
+		const userUpdate = await contactModel.findByIdAndUpdate(userId, req.body);
 		res.status(200).json(userUpdate);
 	},
 
