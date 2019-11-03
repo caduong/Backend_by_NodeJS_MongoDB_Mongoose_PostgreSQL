@@ -1,13 +1,20 @@
 var express = require('express');
 var router = express.Router();
 
-var cache = require('express-redis-cache')();
-
 var usersController = require('../controller/usersController');
+const { check, validationResult } = require('express-validator');
+const validate  = require('../helpers/userHelpers');
+
 
 router.route('/')
-	.get(cache.route(), usersController.getUsers)
-	.post(usersController.newUser)
+	.get(usersController.getUsers)
+	.post( 
+		[
+			check('name').isEmail(), 
+			check('card').isLength({min : 5})
+		],
+		validate.validateBody(),
+		usersController.newUser)
 
 router.route('/:userId')
 	.get(usersController.getUser)

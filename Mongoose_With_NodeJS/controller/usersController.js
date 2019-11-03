@@ -28,6 +28,7 @@ module.exports = {
 		const { userId } = req.params;
 		await contactModel.findByIdAndRemove(userId);
 		res.status(200).send('Removed');
+		
 	},
 
 	/* Update a users . */
