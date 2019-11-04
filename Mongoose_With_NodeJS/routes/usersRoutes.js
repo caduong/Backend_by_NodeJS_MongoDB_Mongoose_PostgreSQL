@@ -10,8 +10,8 @@ router.route('/')
 	.get(usersController.getUsers)
 	.post( 
 		[
-			check('name').isEmail(), 
-			check('card').isLength({min : 5})
+			check('name').isString(),
+			check('email').isEmail() 
 		],
 		validate.validateBody(),
 		usersController.newUser)

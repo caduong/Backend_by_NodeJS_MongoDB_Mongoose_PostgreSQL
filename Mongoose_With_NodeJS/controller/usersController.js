@@ -1,5 +1,5 @@
 var express = require('express');
-var contactModel = require('../model/usersModel');
+var contactModel = require('../model/userModel');
 
 module.exports = {
 
@@ -12,7 +12,7 @@ module.exports = {
 	/* Add a users . */
 	newUser: async (req, res, next) => {
 		const newUser = new contactModel(req.body);
-		const usersSaved = await newUser.save()
+		const usersSaved = await newUser.save();
 		res.status(200).json(usersSaved);
 	},
 

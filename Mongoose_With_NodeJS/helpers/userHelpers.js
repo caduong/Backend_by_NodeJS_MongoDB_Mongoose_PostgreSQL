@@ -2,11 +2,6 @@ var  { check, validationResult } = require('express-validator');
 module.exports = {
 	
 	validateBody: () => {
-		
-		[check('name').isEmail(),
-		check('card').isLength({min: 5})]
-
-
 		//-----------------------------------------------------------
 		return (req, res, next) => {
 			const errors = validationResult(req);
