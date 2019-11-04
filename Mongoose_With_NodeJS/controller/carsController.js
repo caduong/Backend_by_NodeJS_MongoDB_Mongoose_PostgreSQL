@@ -12,27 +12,15 @@ module.exports = {
 
 	/* Add a car . */
 	newCar: async (req, res, next) => {
-		// const newCar = new carModel(req.body);
-		// const carSaved = await newCar.save();
-		// res.status(200).json(carSaved);
-
 		
 		const userPick = await userModel.findById(req.body.seller);
-		console.log("userPick: " + userPick)
 		const newCar = req.body;
-
 		delete newCar.seller;
-
 		const car = new carModel(newCar)
-
 		car.seller = userPick;
-
 		await car.save();
-
 		userPick.cars.push(car);
-
 		await userPick.save();
-
 		res.status(200).json(car);
 	},
 
@@ -48,16 +36,14 @@ module.exports = {
 		const { carId } = req.params;
 		await carModel.findByIdAndRemove(carId);
 		res.status(200).send('Removed');
-		
 	},
 
-	// /* Update a users . */
-	// updateUser: async (req, res, next) => {
-	// 	const { userId } = req.params;
-	// 	const userUpdate = await contactModel.findByIdAndUpdate(userId, req.body);
-	// 	res.status(200).json(userUpdate);
-	// },
-
+	/* Update a car . */
+	updateUser: async (req, res, next) => {
+		const { carId } = req.params;
+		const carUpdate = await carModel.findByIdAndUpdate(carId, req.body);
+		res.status(200).json(carUpdate);
+	},
 };
 
 
