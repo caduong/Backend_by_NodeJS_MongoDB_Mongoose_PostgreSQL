@@ -12,7 +12,6 @@ module.exports = {
 
 	/* Add a car . */
 	newCar: async (req, res, next) => {
-		
 		const userPick = await userModel.findById(req.body.seller);
 		const newCar = req.body;
 		delete newCar.seller;

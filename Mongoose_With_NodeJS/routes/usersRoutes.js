@@ -21,4 +21,5 @@ router.route('/:userId')
 	.put(usersController.updateUser)
 	.delete(usersController.removeUser)
 
+router.route('/:userId/car')	
 module.exports = router;
