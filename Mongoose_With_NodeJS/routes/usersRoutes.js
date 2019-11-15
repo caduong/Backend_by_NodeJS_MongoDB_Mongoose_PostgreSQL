@@ -9,11 +9,11 @@ const validate  = require('../helpers/userHelpers');
 router.route('/')
 	.get(usersController.getUsers)
 	.post( 
-		[
-			check('name').isString(),
-			check('email').isEmail() 
-		],
-		validate.validateBody(),
+		// [
+		// 	check('name').isString(),
+		// 	check('email').isEmail() 
+		// ],
+		// validate.validateBody(),
 		usersController.newUser)
 
 router.route('/:userId')
