@@ -10,6 +10,7 @@
 		"debug": "~2.6.9",
 		"ejs": "~2.6.1",
 		"express": "~4.16.1",
+		"express-status-monitor": "^1.2.7",
 		"express-validator": "^6.2.0",
 		"faker": "^4.1.0",
 		"http-errors": "~1.6.3",

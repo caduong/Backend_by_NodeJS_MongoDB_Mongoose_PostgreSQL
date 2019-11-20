@@ -15,6 +15,7 @@ router.route('/')
 		// ],
 		// validate.validateBody(),
 		usersController.newUser)
+		//.delete(usersController.removeUser)
 
 router.route('/:userId')
 	.get(usersController.getUser)
