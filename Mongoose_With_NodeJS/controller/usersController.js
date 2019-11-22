@@ -3,7 +3,6 @@ var contactModel = require('../model/userModel');
 
 var faker =require('faker');
 
-
 module.exports = {
 
 	/* Get all users . */
