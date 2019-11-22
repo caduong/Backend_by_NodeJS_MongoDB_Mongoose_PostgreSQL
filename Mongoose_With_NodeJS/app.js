@@ -18,7 +18,6 @@ tracing.start({
 	logLevel: 1 // show errors, if any
 });
 
-
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -26,14 +25,11 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 const mongoose = require('mongoose');
+const expressStatusMonitor = require('express-status-monitor');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/usersRoutes.js');
 var carsRouter = require('./routes/carsRoutes.js')
-
-const expressStatusMonitor = require('express-status-monitor');
-
-
 
 var app = express();
 
