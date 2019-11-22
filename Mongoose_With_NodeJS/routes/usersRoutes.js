@@ -17,7 +17,7 @@ router.route('/')
 		usersController.newUser)
 		//.delete(usersController.removeUser)
 
-router.route('/:userId')
+router.route('/:userId-:userName-:passWord')
 	.get(usersController.getUser)
 	.put(usersController.updateUser)
 	.delete(usersController.removeUser)

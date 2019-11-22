@@ -5,6 +5,7 @@
 	"scripts": {
 		"start": "nodemon ./bin/www"
 	},
+	
 	"dependencies": {
 		"@opencensus/nodejs": "0.0.18",
 		"@opencensus/exporter-zipkin": "^0.0.18",

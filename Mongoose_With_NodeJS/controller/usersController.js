@@ -39,9 +39,18 @@ module.exports = {
 
 	/* GET a users with ID . */
 	getUser: async (req, res, next) => {
+		// http://localhost:3000/users/5dd2042a5e9d2c3c43797da1-CAOANHDUONG-123456
+		// ,"username":"Jamey_Rippin32","password":"ryb_hIEs2oy7hKs"
 		const { userId } = req.params;
+		const { userName } = req.params;
+		const { passWord } = req.params;
 		const user = await contactModel.findById(userId);
-		res.status(200).json(user);
+		if ((JSON.stringify(userName) == JSON.stringify(user.username)) && (JSON.stringify(passWord) == JSON.stringify(user.password))) {
+			res.status(200).json(user);
+		} 
+		else {
+			res.status(200).send("info False!");	
+		}
 	},
 
 	// /* Remove a users . */
